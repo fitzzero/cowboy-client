@@ -1,9 +1,11 @@
-import { Box, Typography } from '@mui/joy'
+import { CowboyPage } from '@/components/cowboyPage'
+import { Typography } from '@mui/joy'
+import { ExampleMenu } from './exampleMenu'
 
 export default function Home() {
   return (
-    <Box>
+    <CowboyPage menu={<ExampleMenu />}>
       <Typography>Welcome to Cowboy!</Typography>
-    </Box>
+    </CowboyPage>
   )
 }

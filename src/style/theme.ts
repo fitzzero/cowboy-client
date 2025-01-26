@@ -17,16 +17,16 @@ const text = {
 const hexToPalette = (hex: string) => {
   const color = Color(hex)
   return {
-    50: color.desaturate(0.9).hex(),
-    100: color.desaturate(0.8).hex(),
-    200: color.desaturate(0.6).hex(),
-    300: color.desaturate(0.4).hex(),
-    400: color.desaturate(0.2).hex(),
+    50: color.lighten(0.9).hex(),
+    100: color.lighten(0.8).hex(),
+    200: color.lighten(0.6).hex(),
+    300: color.lighten(0.4).hex(),
+    400: color.lighten(0.2).hex(),
     500: color.hex(),
-    600: color.saturate(0.1).hex(),
-    700: color.saturate(0.2).hex(),
-    800: color.saturate(0.3).hex(),
-    900: color.saturate(0.4).hex(),
+    600: color.darken(0.1).hex(),
+    700: color.darken(0.2).hex(),
+    800: color.darken(0.3).hex(),
+    900: color.darken(0.4).hex(),
     // Active Backgrounds
     outlinedActiveBg: color.fade(0.9).rgb().string(),
     plainActiveBg: color.fade(0.9).rgb().string(),
