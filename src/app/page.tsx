@@ -1,3 +1,5 @@
+'use client'
+
 import { CowboyPage } from '@/components/cowboyPage'
 import { Typography } from '@mui/joy'
 import { ExampleMenu } from './exampleMenu'

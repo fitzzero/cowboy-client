@@ -1,4 +1,5 @@
 'use client'
+
 import { Box, ColorPaletteProp, Sheet, Stack, Typography } from '@mui/joy'
 import { ExampleMenu } from '../exampleMenu'
 import { CowboyPage } from '@/components/cowboyPage'
