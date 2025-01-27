@@ -2,7 +2,7 @@
 
 import { Box, ColorPaletteProp, Sheet, Stack, Typography } from '@mui/joy'
 import { ExampleMenu } from '../exampleMenu'
-import { CowboyPage } from '@/components/cowboyPage'
+import { CowboyPage } from '@/components/layout/cowboyPage'
 
 const StylePalette = () => {
   const palettes: ColorPaletteProp[] = [

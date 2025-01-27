@@ -1,5 +1,5 @@
-import { CowboyImage } from '@/components/cowboyImage'
-import { CowboyMenuTop } from '@/components/cowboyMenuTop'
+import { CowboyImage } from '@/components/display/cowboyImage'
+import { CowboyMenuTop } from '@/components/layout/cowboyMenuTop'
 import { Stack, Typography } from '@mui/joy'
 
 export const ExampleMenu = () => {

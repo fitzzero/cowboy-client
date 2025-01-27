@@ -1,5 +1,6 @@
 import useScroll from '@/hooks/useScroll'
 import { Box, Stack } from '@mui/joy'
+import { AccountOrSignin } from '../input/accountOrSignin'
 
 interface MenuProps {
   account?: boolean
@@ -40,7 +41,7 @@ export const CowboyMenuTop = ({
             spacing={2}
             alignItems='center'
             paddingRight={2}>
-            Account
+            <AccountOrSignin />
           </Stack>
         ) : null}
       </Stack>

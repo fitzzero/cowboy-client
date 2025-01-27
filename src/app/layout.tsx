@@ -1,15 +1,10 @@
-import type { Metadata } from 'next'
 import '@fontsource/space-mono/400.css'
 import '@fontsource/space-mono/700.css'
 import { CssVarsProvider } from '@mui/joy/styles/CssVarsProvider'
 import { theme } from '@/style/theme'
 import '@/style/global.css'
 import Sheet from '@mui/joy/Sheet/Sheet'
-
-export const metadata: Metadata = {
-  title: 'Cowboy',
-  description: 'Cowboy-Client Starter',
-}
+import { NextAuthProvider } from '@/providers/nextAuthProvider'
 
 export default function RootLayout({
   children,
@@ -24,17 +19,19 @@ export default function RootLayout({
           defaultColorScheme='dark'
           modeStorageKey='dark-mode-by-default'
           theme={theme}>
-          <Sheet
-            sx={{
-              height: '100%',
-              minHeight: '100dvh',
-              overflowX: 'hidden',
-              position: 'relative',
-              width: '100%',
-              zIndex: 1,
-            }}>
-            {children}
-          </Sheet>
+          <NextAuthProvider>
+            <Sheet
+              sx={{
+                height: '100%',
+                minHeight: '100dvh',
+                overflowX: 'hidden',
+                position: 'relative',
+                width: '100%',
+                zIndex: 1,
+              }}>
+              {children}
+            </Sheet>
+          </NextAuthProvider>
         </CssVarsProvider>
       </body>
     </html>
