@@ -12,7 +12,7 @@ export const CowboyMenuTop = ({
   branding = null,
   height = 48,
 }: MenuProps) => {
-  const scrollBar = useScroll()
+  const scrollPosition = useScroll()
 
   return (
     <Box height={height}>
@@ -24,7 +24,7 @@ export const CowboyMenuTop = ({
         color='text.primary'
         sx={{
           backgroundColor:
-            scrollBar.y > height ? 'background.level1' : undefined,
+            scrollPosition.y > height ? 'background.level1' : undefined,
           height: 48,
           position: 'fixed',
           width: '100%',
