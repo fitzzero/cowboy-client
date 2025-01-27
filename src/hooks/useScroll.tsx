@@ -3,8 +3,8 @@ import { useState, useEffect } from 'react'
 
 const useScroll = () => {
   const [scrollPosition, setScrollPosition] = useState({
-    x: window?.scrollX || 0,
-    y: window?.scrollY || 0,
+    x: 0,
+    y: 0,
   })
 
   const handleScroll = () => {
