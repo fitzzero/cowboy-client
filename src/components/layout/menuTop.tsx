@@ -1,3 +1,5 @@
+'use client'
+
 import useScroll from '@/hooks/useScroll'
 import { Box, Stack } from '@mui/joy'
 import { AccountOrSignin } from '../input/accountOrSignin'

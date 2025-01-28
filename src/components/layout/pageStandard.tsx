@@ -6,7 +6,7 @@ interface PageProps {
   menu?: React.ReactNode
 }
 
-export const CowboyPage = ({
+export const PageStandard = ({
   children,
   maxWidth = 'md',
   menu = null,

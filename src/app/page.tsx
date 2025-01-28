@@ -1,13 +1,18 @@
-'use client'
-
-import { CowboyPage } from '@/components/layout/cowboyPage'
+import { PageStandard } from '@/components/layout/pageStandard'
 import { Typography } from '@mui/joy'
 import { ExampleMenu } from './exampleMenu'
+import { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Cowboy Client',
+  description:
+    'Simple Next.js framework for a Prisma.io + Socket.io + Joy UI client',
+}
 
 export default function Home() {
   return (
-    <CowboyPage menu={<ExampleMenu />}>
+    <PageStandard menu={<ExampleMenu />}>
       <Typography>Welcome to Cowboy!</Typography>
-    </CowboyPage>
+    </PageStandard>
   )
 }
