@@ -1,13 +1,13 @@
-import { CowboyImage } from '@/components/display/cowboyImage'
-import { CowboyMenuTop } from '@/components/layout/menuTop'
+import { MenuTop } from '@/components/layout/menuTop'
 import { Stack, Typography } from '@mui/joy'
+import Image from 'next/image'
 
 export const ExampleMenu = () => {
   return (
-    <CowboyMenuTop
+    <MenuTop
       branding={
         <Stack direction='row' spacing={2} alignItems='center'>
-          <CowboyImage src='/cowboy_color.png' alt='logo' height={42} />
+          <Image src='/cowboy_color.png' alt='Cowboy' width={32} height={32} />
           <Typography level='title-lg'>Cowboy</Typography>
         </Stack>
       }

@@ -92,14 +92,14 @@ export const theme = extendTheme({
     },
     JoyModalDialog: {
       styleOverrides: {
-        root: ({ ownerState }) => ({
+        root: () => ({
           padding: 0,
         }),
       },
     },
     JoyDialogContent: {
       styleOverrides: {
-        root: ({ ownerState }) => ({
+        root: () => ({
           maxWidth: 600,
         }),
       },
@@ -117,7 +117,7 @@ export const theme = extendTheme({
     },
     JoyTabList: {
       styleOverrides: {
-        root: ({ ownerState }) => ({
+        root: () => ({
           borderRadius: 0,
         }),
       },

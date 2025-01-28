@@ -10,7 +10,7 @@ interface MenuProps {
   height?: number
 }
 
-export const CowboyMenuTop = ({
+export const MenuTop = ({
   account = true,
   branding = null,
   height = 48,

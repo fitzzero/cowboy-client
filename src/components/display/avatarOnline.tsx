@@ -6,7 +6,7 @@ interface OnlineAvatarProps extends AvatarProps {
   error?: boolean
 }
 
-export const OnlineAvatar = ({ error, user, ...props }: OnlineAvatarProps) => {
+export const OnlineAvatar = ({ error, ...props }: OnlineAvatarProps) => {
   const now = new Date().getTime()
   const onlineRecently = now - 0 < 900000 && !error // TODO
   let color: 'neutral' | 'success' | 'danger' = 'neutral'
