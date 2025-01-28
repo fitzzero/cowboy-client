@@ -6,7 +6,7 @@ interface OnlineAvatarProps extends AvatarProps {
   error?: boolean
 }
 
-export const OnlineAvatar = ({ error, ...props }: OnlineAvatarProps) => {
+export const OnlineAvatar = ({ error, user, ...props }: OnlineAvatarProps) => {
   const now = new Date().getTime()
   const onlineRecently = now - 0 < 900000 && !error // TODO
   let color: 'neutral' | 'success' | 'danger' = 'neutral'
@@ -56,6 +56,7 @@ export const OnlineAvatar = ({ error, ...props }: OnlineAvatarProps) => {
         color='neutral'
         variant='solid'
         size='sm'
+        src={user?.image || undefined}
         {...props}
         sx={theme => ({
           border: `1px solid ${theme.palette.background.level1}`,

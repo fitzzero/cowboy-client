@@ -1,16 +1,12 @@
 import { Container } from '@mui/joy'
 
-interface PageProps {
+export interface PageProps {
   children?: React.ReactNode
   maxWidth?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | false
   menu?: React.ReactNode
 }
 
-export const PageStandard = ({
-  children,
-  maxWidth = 'md',
-  menu = null,
-}: PageProps) => {
+export const Page = ({ children, maxWidth = 'md', menu = null }: PageProps) => {
   return (
     <>
       {menu}

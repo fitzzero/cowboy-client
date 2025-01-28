@@ -1,11 +1,11 @@
 import { Box, Dropdown, Menu, MenuButton, MenuItem } from '@mui/joy'
-import { User } from '@prisma/client'
 import { signOut } from 'next-auth/react'
 import { OnlineAvatar } from '@/components/display/avatarOnline'
 import { useRouter } from 'next/navigation'
+import { usePrimaryUser } from '@/providers/userPrimaryProvider'
 
 export const AccountAvatarMenu = () => {
-  const user: User | undefined = undefined
+  const { user } = usePrimaryUser()
   const router = useRouter()
   return user ? (
     <Dropdown>
