@@ -4,7 +4,9 @@ import { useSession } from 'next-auth/react'
 import useSWR from 'swr'
 
 export const useUser = (userId?: string) => {
-  const { data, error } = useSWR(userId, userFindById)
+  const { data, error } = useSWR(userId ? `user-${userId}` : null, () =>
+    userFindById(userId!)
+  )
   if (error) {
     logger.alert(error, 'useUser')
   }
@@ -12,8 +14,11 @@ export const useUser = (userId?: string) => {
 }
 
 export const usePrimaryUser = () => {
-  const session = useSession()
-  const { data, error } = useSWR(session?.data?.user?.id, userFindById)
+  const { data: session } = useSession()
+  const { data, error } = useSWR(
+    session?.user?.id ? `user-${session.user.id}` : null,
+    () => userFindById(session!.user!.id)
+  )
   if (error) {
     logger.alert(error, 'usePrimaryUser')
   }
