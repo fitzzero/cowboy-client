@@ -1,15 +1,15 @@
 'use server'
 
-import { UserPrimaryProvider } from '@/providers/userPrimaryProvider'
 import { Page, PageProps } from './page'
 import { NextAuthProvider } from '@/providers/nextAuthProvider'
+import SWRProvider from '@/providers/swrProvider'
 
-export const PageUser = async ({ children, ...rest }: PageProps) => {
+export const PageWithAuth = async ({ children, ...rest }: PageProps) => {
   return (
     <NextAuthProvider>
-      <UserPrimaryProvider>
+      <SWRProvider>
         <Page {...rest}>{children}</Page>
-      </UserPrimaryProvider>
+      </SWRProvider>
     </NextAuthProvider>
   )
 }

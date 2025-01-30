@@ -2,10 +2,10 @@ import { Box, Dropdown, Menu, MenuButton, MenuItem } from '@mui/joy'
 import { signOut } from 'next-auth/react'
 import { OnlineAvatar } from '@/components/display/avatarOnline'
 import { useRouter } from 'next/navigation'
-import { usePrimaryUser } from '@/providers/userPrimaryProvider'
+import { usePrimaryUser } from '@/hooks/useUser'
 
 export const AccountAvatarMenu = () => {
-  const { user } = usePrimaryUser()
+  const user = usePrimaryUser()
   const router = useRouter()
   return user ? (
     <Dropdown>

@@ -1,6 +1,6 @@
 import { Box, ColorPaletteProp, Sheet, Stack, Typography } from '@mui/joy'
 import { ExampleMenu } from '../exampleMenu'
-import { PageUser } from '@/components/layout/pageUser'
+import { PageWithAuth } from '@/components/layout/pageWithAuth'
 
 const StylePalette = () => {
   const palettes: ColorPaletteProp[] = [
@@ -13,7 +13,7 @@ const StylePalette = () => {
   const weights = [50, 100, 200, 300, 400, 500, 600, 700, 800, 900]
 
   return (
-    <PageUser menu={<ExampleMenu />}>
+    <PageWithAuth menu={<ExampleMenu />}>
       <Typography level='h3'>Primary Palette</Typography>
       <Stack direction='column' spacing={2}>
         {palettes.map(palette => (
@@ -38,7 +38,7 @@ const StylePalette = () => {
           </Box>
         ))}
       </Stack>
-    </PageUser>
+    </PageWithAuth>
   )
 }
 

@@ -3,11 +3,11 @@
 import { Button, CircularProgress } from '@mui/joy'
 import { signIn, useSession } from 'next-auth/react'
 import { AccountAvatarMenu } from './accountAvatarMenu'
-import { usePrimaryUser } from '@/providers/userPrimaryProvider'
+import { usePrimaryUser } from '@/hooks/useUser'
 
 export const AccountOrSignin = () => {
   const { status } = useSession()
-  const { user } = usePrimaryUser()
+  const user = usePrimaryUser()
 
   if (status == 'unauthenticated')
     return (

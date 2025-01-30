@@ -1,7 +1,7 @@
 import { Typography } from '@mui/joy'
 import { ExampleMenu } from './exampleMenu'
 import { Metadata } from 'next'
-import { PageUser } from '@/components/layout/pageUser'
+import { PageWithAuth } from '@/components/layout/pageWithAuth'
 
 export const metadata: Metadata = {
   title: 'Cowboy Client',
@@ -11,8 +11,8 @@ export const metadata: Metadata = {
 
 export default function Home() {
   return (
-    <PageUser menu={<ExampleMenu />}>
+    <PageWithAuth menu={<ExampleMenu />}>
       <Typography>Welcome to Cowboy!</Typography>
-    </PageUser>
+    </PageWithAuth>
   )
 }
