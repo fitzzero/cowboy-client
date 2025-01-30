@@ -10,7 +10,9 @@
     "prisma:migrate": "prisma migrate deploy",
     "prisma:generate": "prisma generate",
     "prisma:sync": "cd src/cowboy-database && git pull && git add . && git commit -m 'sync' && git push",
-    "update:database": "yarn prisma:migrate && yarn prisma:generate && yarn prisma:commit"
+    "prisma:pull": "cd src/cowboy-database && git pull",
+    "database:push": "yarn prisma:migrate && yarn prisma:generate && yarn prisma:sync",
+    "database:pull": "yarn prisma:pull && yarn prisma:generate"
   },
   "prisma": {
     "schema": "src/cowboy-database/prisma/schema.prisma"
@@ -21,7 +23,6 @@
     "@emotion/styled": "^11.14.0",
     "@fontsource/space-mono": "^5.1.2",
     "@mui/joy": "^5.0.0-beta.51",
-    "@prisma/client": "^6.2.1",
     "color": "^4.2.3",
     "next": "15.1.6",
     "next-auth": "^4.24.11",
@@ -30,6 +31,7 @@
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
+    "@prisma/client": "^6.2.1",
     "@types/color": "^4.2.0",
     "@types/node": "^20",
     "@types/react": "^19",

@@ -1,8 +1,7 @@
 'use client'
 
-import { userFindByEmail } from '@/lib/user'
+import { userFindByEmail } from '@/cowboy-database/user'
 import { User } from '@prisma/client'
-import { Session } from 'next-auth'
 import { useSession } from 'next-auth/react'
 import {
   createContext,
