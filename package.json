@@ -9,7 +9,7 @@
     "lint": "next lint",
     "prisma:migrate": "prisma migrate deploy",
     "prisma:generate": "prisma generate",
-    "prisma:commit": "sh -c 'cd src/cowboy-database && git add . && git commit -m \"Update database\" && git push'",
+    "prisma:sync": "cd src/cowboy-database && git pull && git add . && git commit -m 'sync' && git push",
     "update:database": "yarn prisma:migrate && yarn prisma:generate && yarn prisma:commit"
   },
   "prisma": {
