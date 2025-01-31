@@ -7,6 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
+    "submodule": "git submodule init && git submodule update",
     "prisma:migrate": "prisma migrate deploy",
     "prisma:generate": "prisma generate",
     "prisma:sync": "cd src/cowboy-database && git pull && git add . && git commit -m 'sync' && git push",
