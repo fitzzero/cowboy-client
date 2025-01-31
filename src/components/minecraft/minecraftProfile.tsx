@@ -1,39 +1,49 @@
 'use client'
 
-import { useMinecraftProfileCreate } from '@/hooks/useMinecraft'
-import { usePrimaryUser } from '@/hooks/useUser'
 import {
   Avatar,
   Badge,
   FormControl,
   FormHelperText,
   Input,
-  Sheet,
+  Card,
   Stack,
 } from '@mui/joy'
 import { useState } from 'react'
 import RotateLeftIcon from '@mui/icons-material/RotateLeft'
 import ErrorIcon from '@mui/icons-material/Error'
 import CheckCircleIcon from '@mui/icons-material/CheckCircle'
+import { Minecraft, Prisma } from '@prisma/client'
+import { useAction } from '@/hooks/useAction'
+import {
+  minecraftCreateOrUpdateByName,
+  MinecraftCreateOrUpdateByNameProps,
+} from '@/cowboy-database/minecraft'
+import { useMinecraftNameUpdate } from '@/hooks/useMinecraft'
 
-export const MinecraftUserProfile = () => {
-  const { createProfile, loading, error } = useMinecraftProfileCreate()
-  const [value, setValue] = useState<string>('')
-  const user = usePrimaryUser()
-  console.log(user)
+export const MinecraftUserProfile = ({
+  user,
+}: {
+  user: Prisma.UserGetPayload<{ include: { minecraft: true } }>
+}) => {
+  const { state, createOrUpdate, isLoading } = useMinecraftNameUpdate(
+    user?.minecraft || null
+  )
+
+  const [inputValue, setInputValue] = useState<string>(
+    user.minecraft?.name || ''
+  )
+  const isError = state.code && state.code != '200' ? true : false
+
+  if (!user) return null
 
   const handleUpdate = () => {
-    if (!value) return
-    createProfile(value)
+    if (!inputValue) return
+    createOrUpdate({ name: inputValue, userId: user.id })
   }
 
   return (
-    <Sheet
-      sx={{
-        background: 'rgb(0,0,0, 0.8)',
-        p: 2,
-        borderRadius: 4,
-      }}>
+    <Card>
       <Stack direction='row' alignItems='center' spacing={2} pb={1}>
         <Badge
           anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
@@ -49,28 +59,28 @@ export const MinecraftUserProfile = () => {
           sx={{ '--Badge-paddingX': '0px' }}>
           <Avatar alt='Travis Howard' src={user?.image || ''} size='lg' />
         </Badge>
-        <FormControl error={!!error}>
+        <FormControl error={isError}>
           <Input
             size='lg'
             color='primary'
             variant='soft'
             placeholder='Minecraft Username'
-            value={value}
-            onChange={event => setValue(event.target.value)}
+            value={inputValue}
+            onChange={event => setInputValue(event.target.value)}
             onBlur={handleUpdate}
             endDecorator={
-              loading ? (
+              isLoading ? (
                 <RotateLeftIcon fontSize='small' />
-              ) : error ? (
+              ) : isError ? (
                 <ErrorIcon fontSize='small' />
               ) : (
                 <CheckCircleIcon fontSize='small' />
               )
             }
           />
-          {error ? <FormHelperText>{error}</FormHelperText> : null}
+          {isError ? <FormHelperText>{state?.message}</FormHelperText> : null}
         </FormControl>
       </Stack>
-    </Sheet>
+    </Card>
   )
 }

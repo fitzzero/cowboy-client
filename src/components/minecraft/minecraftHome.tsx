@@ -3,7 +3,7 @@
 import { Grid } from '@mui/joy'
 import { MinecraftServerStatus } from './serverStatus'
 import { usePrimaryUser } from '@/hooks/useUser'
-import { MinecraftUserProfile } from './userProfile'
+import { MinecraftUserProfile } from './minecraftProfile'
 
 export const MinecraftHome = () => {
   const user = usePrimaryUser()
@@ -14,7 +14,7 @@ export const MinecraftHome = () => {
       </Grid>
       {user ? (
         <Grid xs={12} md={6}>
-          <MinecraftUserProfile />
+          <MinecraftUserProfile user={user} />
         </Grid>
       ) : null}
     </Grid>

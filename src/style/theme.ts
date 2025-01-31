@@ -3,7 +3,7 @@ import { extendTheme } from '@mui/joy/styles'
 import Color from 'color'
 
 export const minContentHeight = '75dvh'
-const surface = '#0A4072'
+const surface = 'rgb(0, 0, 0, 0.8)'
 const popup = '#1C6399'
 const primary = '#72C5E5'
 const neutral = '#021722'

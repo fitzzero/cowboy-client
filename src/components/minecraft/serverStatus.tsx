@@ -1,4 +1,4 @@
-import { Sheet, Stack, Typography } from '@mui/joy'
+import { Card, Stack, Typography } from '@mui/joy'
 import { CodeBlock } from '../display/codeBlock'
 import PlaceIcon from '@mui/icons-material/Place'
 import GroupIcon from '@mui/icons-material/Group'
@@ -6,12 +6,7 @@ import UpgradeIcon from '@mui/icons-material/Upgrade'
 
 export const MinecraftServerStatus = () => {
   return (
-    <Sheet
-      sx={{
-        background: 'rgb(0,0,0, 0.8)',
-        p: 2,
-        borderRadius: 4,
-      }}>
+    <Card>
       <Stack direction='column' spacing={1}>
         <Stack direction='row' spacing={1} alignItems='center'>
           <PlaceIcon />
@@ -29,6 +24,6 @@ export const MinecraftServerStatus = () => {
           <CodeBlock>1/50</CodeBlock>
         </Stack>
       </Stack>
-    </Sheet>
+    </Card>
   )
 }
