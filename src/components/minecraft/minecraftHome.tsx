@@ -1,22 +1,25 @@
 'use client'
 
-import { Grid } from '@mui/joy'
+import { Grid, Stack, Typography } from '@mui/joy'
 import { MinecraftServerStatus } from './serverStatus'
 import { usePrimaryUser } from '@/hooks/useUser'
 import { MinecraftUserProfile } from './minecraftProfile'
+import { MinecraftInfo } from './minecraftInfo'
+import { MinecraftCta } from './minecraftCta'
 
 export const MinecraftHome = () => {
   const user = usePrimaryUser()
   return (
     <Grid container spacing={2}>
       <Grid xs={12} md={6}>
-        <MinecraftServerStatus />
+        <Stack direction='column' spacing={2}>
+          {user ? <MinecraftUserProfile user={user} /> : <MinecraftCta />}
+          <MinecraftServerStatus />
+        </Stack>
       </Grid>
-      {user ? (
-        <Grid xs={12} md={6}>
-          <MinecraftUserProfile user={user} />
-        </Grid>
-      ) : null}
+      <Grid xs={12}>
+        <MinecraftInfo />
+      </Grid>
     </Grid>
   )
 }

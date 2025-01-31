@@ -16,7 +16,7 @@ export const MinecraftServerStatus = () => {
         <Stack direction='row' spacing={1} alignItems='center'>
           <UpgradeIcon />
           <Typography>Version:</Typography>
-          <CodeBlock>1.21.4</CodeBlock>
+          <CodeBlock>Java Edition 1.21.4</CodeBlock>
         </Stack>
         <Stack direction='row' spacing={1} alignItems='center'>
           <GroupIcon />

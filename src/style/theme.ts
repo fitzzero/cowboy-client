@@ -150,6 +150,14 @@ export const theme = extendTheme({
           ) && {
             letterSpacing: '1px',
           }),
+          // Links
+          '& a': {
+            color: text.primary,
+            textDecoration: 'none',
+          },
+          '& a:hover': {
+            color: palette.primary[500],
+          },
         }),
       },
     },

@@ -13,12 +13,7 @@ import { useState } from 'react'
 import RotateLeftIcon from '@mui/icons-material/RotateLeft'
 import ErrorIcon from '@mui/icons-material/Error'
 import CheckCircleIcon from '@mui/icons-material/CheckCircle'
-import { Minecraft, Prisma } from '@prisma/client'
-import { useAction } from '@/hooks/useAction'
-import {
-  minecraftCreateOrUpdateByName,
-  MinecraftCreateOrUpdateByNameProps,
-} from '@/cowboy-database/minecraft'
+import { Prisma } from '@prisma/client'
 import { useMinecraftNameUpdate } from '@/hooks/useMinecraft'
 
 export const MinecraftUserProfile = ({
@@ -39,6 +34,7 @@ export const MinecraftUserProfile = ({
 
   const handleUpdate = () => {
     if (!inputValue) return
+    if (inputValue === state.data?.name) return
     createOrUpdate({ name: inputValue, userId: user.id })
   }
 
@@ -55,9 +51,16 @@ export const MinecraftUserProfile = ({
               sx={{ '--Avatar-size': '24px' }}
             />
           }
-          badgeInset='14%'
-          sx={{ '--Badge-paddingX': '0px' }}>
-          <Avatar alt='Travis Howard' src={user?.image || ''} size='lg' />
+          badgeInset='0%'
+          sx={{ '--Badge-paddingX': '0px', marginBottom: '12px' }}>
+          <Avatar
+            alt='Travis Howard'
+            src={state?.data?.image || '/minecraft/steve.jpg'}
+            size='lg'
+            sx={{
+              borderRadius: 4,
+            }}
+          />
         </Badge>
         <FormControl error={isError}>
           <Input
