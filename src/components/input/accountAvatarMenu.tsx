@@ -7,6 +7,7 @@ import { usePrimaryUser } from '@/hooks/useUser'
 export const AccountAvatarMenu = () => {
   const user = usePrimaryUser()
   const router = useRouter()
+
   return user ? (
     <Dropdown>
       <MenuButton

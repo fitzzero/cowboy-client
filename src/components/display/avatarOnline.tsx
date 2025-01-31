@@ -9,7 +9,7 @@ interface OnlineAvatarProps extends AvatarProps {
 export const OnlineAvatar = ({ error, user, ...props }: OnlineAvatarProps) => {
   const now = new Date().getTime()
   const onlineRecently = now - 0 < 900000 && !error // TODO
-  let color: 'neutral' | 'success' | 'danger' = 'neutral'
+  let color: 'neutral' | 'success' | 'danger' = 'success'
   if (onlineRecently) color = 'success'
   else if (error) color = 'danger'
 

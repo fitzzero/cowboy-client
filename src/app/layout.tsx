@@ -6,6 +6,7 @@ import { CssVarsProvider } from '@mui/joy/styles/CssVarsProvider'
 import { theme } from '@/style/theme'
 import '@/style/global.css'
 import Sheet from '@mui/joy/Sheet/Sheet'
+import { Background } from '@/components/display/background'
 
 export default function RootLayout({
   children,
@@ -30,6 +31,7 @@ export default function RootLayout({
               zIndex: 1,
             }}>
             {children}
+            <Background />
           </Sheet>
         </CssVarsProvider>
       </body>

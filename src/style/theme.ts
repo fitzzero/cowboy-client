@@ -3,15 +3,17 @@ import { extendTheme } from '@mui/joy/styles'
 import Color from 'color'
 
 export const minContentHeight = '75dvh'
-const surface = '#6a442d'
-const primary = '#759298'
-const neutral = '#72757e'
+const surface = '#0A4072'
+const popup = '#1C6399'
+const primary = '#72C5E5'
+const neutral = '#021722'
 const success = '#2cb67d'
 const warning = '#FEE75C'
 const danger = '#ED4245'
 const text = {
-  primary: '#f0dfc1',
-  secondary: '#94a1b2',
+  primary: '#fff',
+  secondary: '#ccc',
+  icon: '#72C5E5',
 }
 
 const hexToPalette = (hex: string) => {
@@ -45,6 +47,8 @@ const hexToPalette = (hex: string) => {
 const palette = {
   background: {
     surface,
+    popup,
+    tooltip: Color(surface).darken(0.2).hex(),
     level1: Color(surface).lighten(0.2).hex(),
     level2: Color(surface).lighten(0.4).hex(),
     level3: Color(surface).lighten(0.6).hex(),
@@ -87,6 +91,13 @@ export const theme = extendTheme({
               color: text.primary,
             },
           },
+        }),
+      },
+    },
+    JoyMenuItem: {
+      styleOverrides: {
+        root: () => ({
+          color: palette.text.primary,
         }),
       },
     },
