@@ -3,6 +3,11 @@ import { PrismaAdapter } from '@auth/prisma-adapter'
 import { AuthOptions } from 'next-auth'
 import { prisma } from '@/cowboy-database/prisma'
 
+// Log the NEXTAUTH_SECRET to verify it's being read correctly
+if (!process.env.NEXTAUTH_SECRET) {
+  throw new Error('NEXTAUTH_SECRET is not defined')
+}
+
 export const authOptions: AuthOptions = {
   secret: process.env.NEXTAUTH_SECRET,
   providers: [
