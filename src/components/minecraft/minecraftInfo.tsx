@@ -5,7 +5,7 @@ export const MinecraftInfo = () => {
     <Card>
       <Typography level='h3'>About</Typography>
       <Typography level='body-lg'>
-        An casual Minecraft server hosted by{' '}
+        Casual Minecraft server hosted by{' '}
         <a href='https://about.rallycry.gg' target='_blank'>
           Rally Cry
         </a>{' '}
