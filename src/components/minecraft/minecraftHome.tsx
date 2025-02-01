@@ -6,6 +6,7 @@ import { usePrimaryUser } from '@/hooks/useUser'
 import { MinecraftUserProfile } from './minecraftProfile'
 import { MinecraftInfo } from './minecraftInfo'
 import { MinecraftCta } from './minecraftCta'
+import { MinecraftBacklog } from './minecraftBacklog'
 
 export const MinecraftHome = () => {
   const user = usePrimaryUser()
@@ -19,6 +20,9 @@ export const MinecraftHome = () => {
       </Grid>
       <Grid xs={12}>
         <MinecraftInfo />
+      </Grid>
+      <Grid xs={12}>
+        <MinecraftBacklog />
       </Grid>
     </Grid>
   )
