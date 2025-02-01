@@ -15,6 +15,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang='en'>
+      <head>
+        <link rel='icon' type='image/png' sizes='192x192' href='/logo.png' />
+      </head>
       <body>
         <CssVarsProvider
           defaultMode='dark'

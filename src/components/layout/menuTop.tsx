@@ -18,7 +18,7 @@ export const MenuTop = ({
   const scrollPosition = useScroll()
 
   return (
-    <Box height={height}>
+    <Box height={height + 16}>
       <Stack
         direction='row'
         flexWrap='nowrap'

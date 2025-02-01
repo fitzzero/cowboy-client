@@ -173,6 +173,9 @@ export const theme = extendTheme({
               backgroundColor: primary,
             },
           }),
+          ...(!ownerState.selected && {
+            color: text.secondary,
+          }),
         }),
       },
     },
