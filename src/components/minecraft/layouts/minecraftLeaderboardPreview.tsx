@@ -2,8 +2,10 @@ import { useMinecraftLeaderboard } from '@/hooks/useMinecraftStats'
 import { Button, Card, Stack, Typography } from '@mui/joy'
 import { MinecraftUserAvatar } from '../display/minecraftUserAvatar'
 import BarChartIcon from '@mui/icons-material/BarChart'
+import { useRouter } from 'next/navigation'
 
 export const MinecraftLeaderboardPreview = () => {
+  const router = useRouter()
   const leaderboard = useMinecraftLeaderboard(3)
   return (
     <Card sx={{ height: '100%' }}>
@@ -12,7 +14,9 @@ export const MinecraftLeaderboardPreview = () => {
         justifyContent={'space-between'}
         alignItems='center'>
         <Typography level='h3'>Leaderboard</Typography>
-        <Button color='neutral'>View All</Button>
+        <Button color='neutral' onClick={() => router.push('/leaderboard')}>
+          View All
+        </Button>
       </Stack>
       {leaderboard?.map(stats => (
         <Stack key={stats.id} direction='row' alignItems='center' spacing={2}>
