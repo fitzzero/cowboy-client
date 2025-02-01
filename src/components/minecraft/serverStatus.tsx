@@ -57,9 +57,7 @@ export const MinecraftServerStatus = () => {
         <Stack direction='row' spacing={1} alignItems='center'>
           <GroupIcon />
           <Typography>Status:</Typography>
-          {loading ? (
-            <Skeleton />
-          ) : status?.online ? (
+          {status?.online ? (
             <CodeBlock>
               {status?.players?.online}/{status?.players?.max}
             </CodeBlock>
