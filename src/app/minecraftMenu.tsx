@@ -13,8 +13,20 @@ export const MinecraftMenu = () => {
               fontSize: '1.3rem',
             }}
           />
-          <Typography level='title-lg'>RC MC</Typography>
-          <Tabs aria-label='Disabled tabs' defaultValue={0}>
+          <Typography
+            sx={{
+              paddingRight: 4,
+            }}
+            level='title-lg'>
+            RC MC
+          </Typography>
+          <Tabs
+            defaultValue={0}
+            sx={{
+              backgroundColor: 'transparent',
+              border: 'none',
+            }}
+            variant='outlined'>
             <TabList defaultValue={0}>
               <Tab>Home</Tab>
               <Tab disabled>Leaderboard</Tab>
