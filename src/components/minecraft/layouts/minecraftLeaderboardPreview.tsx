@@ -1,5 +1,5 @@
 import { useMinecraftLeaderboard } from '@/hooks/useMinecraftStats'
-import { Card, Stack, Typography } from '@mui/joy'
+import { Button, Card, Stack, Typography } from '@mui/joy'
 import { MinecraftUserAvatar } from '../display/minecraftUserAvatar'
 import BarChartIcon from '@mui/icons-material/BarChart'
 
@@ -7,7 +7,13 @@ export const MinecraftLeaderboardPreview = () => {
   const leaderboard = useMinecraftLeaderboard(3)
   return (
     <Card sx={{ height: '100%' }}>
-      <Typography level='h3'>Leaderboard</Typography>
+      <Stack
+        direction='row'
+        justifyContent={'space-between'}
+        alignItems='center'>
+        <Typography level='h3'>Leaderboard</Typography>
+        <Button color='neutral'>View All</Button>
+      </Stack>
       {leaderboard?.map(stats => (
         <Stack key={stats.id} direction='row' alignItems='center' spacing={2}>
           <MinecraftUserAvatar

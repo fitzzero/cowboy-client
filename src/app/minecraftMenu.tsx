@@ -30,7 +30,6 @@ export const MinecraftMenu = () => {
     {
       label: 'Leaderboard',
       path: '/leaderboard',
-      disabled: true,
     },
     {
       label: 'Skills',
