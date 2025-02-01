@@ -15,6 +15,7 @@ import ErrorIcon from '@mui/icons-material/Error'
 import CheckCircleIcon from '@mui/icons-material/CheckCircle'
 import { Prisma } from '@prisma/client'
 import { useMinecraftNameUpdate } from '@/hooks/useMinecraft'
+import { MinecraftUserAvatar } from './minecraftUserAvatar'
 
 export const MinecraftUserProfile = ({
   user,
@@ -41,27 +42,7 @@ export const MinecraftUserProfile = ({
   return (
     <Card>
       <Stack direction='row' alignItems='center' spacing={2} pb={1}>
-        <Badge
-          anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
-          variant='plain'
-          badgeContent={
-            <Avatar
-              alt='Remy Sharp'
-              src={user?.image || ''}
-              sx={{ '--Avatar-size': '24px' }}
-            />
-          }
-          badgeInset='0%'
-          sx={{ '--Badge-paddingX': '0px', marginBottom: '12px' }}>
-          <Avatar
-            alt='Travis Howard'
-            src={state?.data?.image || '/minecraft/steve.jpg'}
-            size='lg'
-            sx={{
-              borderRadius: 4,
-            }}
-          />
-        </Badge>
+        <MinecraftUserAvatar user={user} minecraft={state.data || undefined} />
         <FormControl error={isError}>
           <Input
             size='lg'

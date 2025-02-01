@@ -1,7 +1,7 @@
 import { Metadata } from 'next'
 import { PageWithAuth } from '@/components/layout/pageWithAuth'
 import { MinecraftMenu } from '../minecraftMenu'
-import { MinecraftHelp } from '@/components/minecraft/minecraftHelp'
+import { MinecraftHelp } from '@/components/minecraft/layouts/minecraftHelp'
 
 export const metadata: Metadata = {
   title: 'RC MC: Help',

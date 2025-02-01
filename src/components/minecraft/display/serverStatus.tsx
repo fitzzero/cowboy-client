@@ -1,10 +1,10 @@
 import { Card, Skeleton, Stack, Typography } from '@mui/joy'
-import { CodeBlock } from '../display/codeBlock'
 import PlaceIcon from '@mui/icons-material/Place'
 import GroupIcon from '@mui/icons-material/Group'
 import UpgradeIcon from '@mui/icons-material/Upgrade'
 import axios from 'axios'
 import { useEffect, useState } from 'react'
+import { CodeBlock } from '@/components/display/codeBlock'
 
 interface ServerStatus {
   online: boolean
@@ -39,6 +39,12 @@ export const MinecraftServerStatus = () => {
     }
 
     fetchServerStatus()
+
+    // Set interval to fetch server status every 2 minutes
+    const intervalId = setInterval(fetchServerStatus, 2 * 60 * 1000)
+
+    // Clear interval on component unmount
+    return () => clearInterval(intervalId)
   }, [])
 
   return (

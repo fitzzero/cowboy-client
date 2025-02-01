@@ -1,3 +1,5 @@
+'use client'
+
 import { logger } from '@/cowboy-database/logger'
 import { userWithMinecraftFindById } from '@/cowboy-database/user'
 import { useSession } from 'next-auth/react'

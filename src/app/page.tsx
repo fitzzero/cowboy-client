@@ -1,7 +1,7 @@
 import { Metadata } from 'next'
 import { PageWithAuth } from '@/components/layout/pageWithAuth'
 import { MinecraftMenu } from './minecraftMenu'
-import { MinecraftHome } from '@/components/minecraft/minecraftHome'
+import { MinecraftHome } from '@/components/minecraft/layouts/minecraftHome'
 
 export const metadata: Metadata = {
   title: 'RC MC',

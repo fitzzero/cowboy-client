@@ -82,6 +82,13 @@ export const theme = extendTheme({
         root: {},
       },
     },
+    JoyCard: {
+      styleOverrides: {
+        root: () => ({
+          boxSizing: 'border-box',
+        }),
+      },
+    },
     JoyChip: {
       styleOverrides: {
         root: ({ ownerState }) => ({
@@ -143,7 +150,9 @@ export const theme = extendTheme({
           // Body Fonts
           ...(['body-lg', 'body-md', 'body-sm'].includes(
             ownerState.level || ''
-          ) && {}),
+          ) && {
+            color: text.secondary,
+          }),
           // Title Fonts
           ...(['title-lg', 'title-md', 'title-sm'].includes(
             ownerState.level || ''
