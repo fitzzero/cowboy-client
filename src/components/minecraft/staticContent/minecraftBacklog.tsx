@@ -7,10 +7,6 @@ interface Backlog {
 export const MinecraftBacklog = () => {
   const backlog: Backlog[] = [
     {
-      name: 'New Spawn',
-      description: 'A real spawn area with central services (ie exchange)',
-    },
-    {
       name: 'Map',
       description: 'Live map of the world',
     },
