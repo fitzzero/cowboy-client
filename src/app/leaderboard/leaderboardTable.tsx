@@ -1,6 +1,9 @@
 'use client'
 
-import { MinecraftSkills } from '@/components/minecraft/display/minecraftSkills'
+import {
+  MinecraftSkills,
+  MinecraftSkillsWithIcons,
+} from '@/components/minecraft/display/minecraftSkills'
 import { useMinecraftLeaderboard } from '@/hooks/useMinecraftStats'
 import {
   Avatar,
@@ -18,10 +21,11 @@ export const LeaderboardTable = () => {
     <Table
       sx={{
         '& thead th': {
-          backgroundColor: 'background.level1',
+          backgroundColor: 'background.popup',
         },
-        '& th img': {
-          filter: 'invert()',
+        '& th svg': {
+          fill: '#fff',
+          height: '16px',
         },
       }}>
       <thead>
@@ -40,18 +44,16 @@ export const LeaderboardTable = () => {
               />
             </Tooltip>
           </th>
-          {MinecraftSkills().map(skill => (
-            <th key={skill}>
-              <Tooltip title={skill} placement='top-start'>
-                <img
-                  src={`/assets/skills/${skill}.svg`}
-                  alt={skill}
-                  width={16}
-                  height={16}
-                />
-              </Tooltip>
-            </th>
-          ))}
+          {MinecraftSkills.map(skill => {
+            const Icon = MinecraftSkillsWithIcons?.[skill]
+            return (
+              <th key={skill}>
+                <Tooltip title={skill} placement='top-start'>
+                  {Icon ? Icon : null}
+                </Tooltip>
+              </th>
+            )
+          })}
         </tr>
       </thead>
       <tbody>
@@ -84,7 +86,7 @@ export const LeaderboardTable = () => {
                 </Typography>
               </Tooltip>
             </td>
-            {MinecraftSkills().map(skillName => {
+            {MinecraftSkills.map(skillName => {
               const skill = skillName.toLowerCase()
               // @ts-expect-error This def exists but types are wrong
               const skillLevel = stats?.[`${skill}Level`]
