@@ -86,6 +86,7 @@ export const theme = extendTheme({
       styleOverrides: {
         root: () => ({
           boxSizing: 'border-box',
+          overflow: 'hidden',
         }),
       },
     },

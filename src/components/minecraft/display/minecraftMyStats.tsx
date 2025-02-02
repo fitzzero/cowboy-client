@@ -8,7 +8,6 @@ interface MinecraftMyStatsProps {
 }
 export const MinecraftMyStats = ({ userId }: MinecraftMyStatsProps) => {
   const stats = useMinecraftStats(userId)
-  if (!stats) return null
   return (
     <Stack direction='row' spacing={1} alignItems='center'>
       <BarChartIcon />
@@ -17,11 +16,11 @@ export const MinecraftMyStats = ({ userId }: MinecraftMyStatsProps) => {
         sx={{
           paddingRight: 2,
         }}>
-        Total Level: <strong>{stats.totalLevel}</strong>
+        Total Level: <strong>{stats?.totalLevel || 0}</strong>
       </Typography>
       <MonetizationOnIcon />
       <Typography level='body-sm'>
-        Money: <strong>{stats.money}</strong>
+        Money: <strong>{stats?.money || 0}</strong>
       </Typography>
     </Stack>
   )

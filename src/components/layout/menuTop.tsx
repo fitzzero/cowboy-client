@@ -32,7 +32,7 @@ export const MenuTop = ({
           position: 'fixed',
           width: '100%',
           transition: 'background-color 0.2s',
-          zIndex: 1,
+          zIndex: 9,
         }}>
         <Stack direction='row' spacing={2} alignItems='center' paddingLeft={2}>
           {branding}

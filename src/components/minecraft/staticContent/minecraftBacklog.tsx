@@ -1,4 +1,4 @@
-import { Card, Stack, Typography } from '@mui/joy'
+import { Card, CardContent, Stack, Typography } from '@mui/joy'
 
 interface Backlog {
   name: string
@@ -31,18 +31,20 @@ export const MinecraftBacklog = () => {
   ]
   return (
     <Card>
-      <Typography level='h3'>Upcoming Features</Typography>
-      <Stack direction='column' spacing={2}>
-        {backlog.map(item => (
-          <Stack
-            key={item.name}
-            direction='column'
-            justifyContent={'space-between'}>
-            <Typography color='primary'>{item.name}</Typography>
-            <Typography>{item.description}</Typography>
-          </Stack>
-        ))}
-      </Stack>
+      <CardContent>
+        <Typography level='h3'>Upcoming Features</Typography>
+        <Stack direction='column' spacing={2}>
+          {backlog.map(item => (
+            <Stack
+              key={item.name}
+              direction='column'
+              justifyContent={'space-between'}>
+              <Typography color='primary'>{item.name}</Typography>
+              <Typography>{item.description}</Typography>
+            </Stack>
+          ))}
+        </Stack>
+      </CardContent>
     </Card>
   )
 }

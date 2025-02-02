@@ -1,4 +1,4 @@
-import { Card, Skeleton, Stack, Typography } from '@mui/joy'
+import { Card, CardContent, Skeleton, Stack, Typography } from '@mui/joy'
 import PlaceIcon from '@mui/icons-material/Place'
 import GroupIcon from '@mui/icons-material/Group'
 import UpgradeIcon from '@mui/icons-material/Upgrade'
@@ -49,29 +49,31 @@ export const MinecraftServerStatus = () => {
 
   return (
     <Card>
-      <Stack direction='column' spacing={1}>
-        <Stack direction='row' spacing={1} alignItems='center'>
-          <PlaceIcon />
-          <Typography>IP:</Typography>
-          <CodeBlock>{address}</CodeBlock>
+      <CardContent>
+        <Stack direction='column' spacing={1}>
+          <Stack direction='row' spacing={1} alignItems='center'>
+            <PlaceIcon />
+            <Typography>IP:</Typography>
+            <CodeBlock>{address}</CodeBlock>
+          </Stack>
+          <Stack direction='row' spacing={1} alignItems='center'>
+            <UpgradeIcon />
+            <Typography>Version:</Typography>
+            <CodeBlock>Java Edition {status?.version}</CodeBlock>
+          </Stack>
+          <Stack direction='row' spacing={1} alignItems='center'>
+            <GroupIcon />
+            <Typography>Status:</Typography>
+            {status?.online ? (
+              <CodeBlock>
+                {status?.players?.online}/{status?.players?.max}
+              </CodeBlock>
+            ) : (
+              <Typography color='danger'>Offline</Typography>
+            )}
+          </Stack>
         </Stack>
-        <Stack direction='row' spacing={1} alignItems='center'>
-          <UpgradeIcon />
-          <Typography>Version:</Typography>
-          <CodeBlock>Java Edition {status?.version}</CodeBlock>
-        </Stack>
-        <Stack direction='row' spacing={1} alignItems='center'>
-          <GroupIcon />
-          <Typography>Status:</Typography>
-          {status?.online ? (
-            <CodeBlock>
-              {status?.players?.online}/{status?.players?.max}
-            </CodeBlock>
-          ) : (
-            <Typography color='danger'>Offline</Typography>
-          )}
-        </Stack>
-      </Stack>
+      </CardContent>
     </Card>
   )
 }
