@@ -13,7 +13,7 @@ export const useMinecraftProfile = (id?: string) => {
     minecraftFindById(id!)
   )
   if (error) {
-    logger.alert(error, 'useUser')
+    logger.alert(error, 'useMinecraft')
   }
   return data
 }

@@ -149,10 +149,10 @@ export const theme = extendTheme({
             fontWeight: 700,
           }),
           // Body Fonts
-          ...(['body-lg', 'body-md', 'body-sm'].includes(
+          ...(['body-lg', 'body-md', 'body-sm', 'body-xs'].includes(
             ownerState.level || ''
           ) && {
-            color: text.secondary,
+            color: ownerState.color || text.secondary,
           }),
           // Title Fonts
           ...(['title-lg', 'title-md', 'title-sm'].includes(

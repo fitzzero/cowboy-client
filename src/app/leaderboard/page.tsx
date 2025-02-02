@@ -1,7 +1,8 @@
 import { Metadata } from 'next'
 import { PageWithAuth } from '@/components/layout/pageWithAuth'
 import { MinecraftMenu } from '../minecraftMenu'
-import { Sheet, Typography } from '@mui/joy'
+import { LeaderboardTable } from './leaderboardTable'
+import { Card } from '@mui/joy'
 
 export const metadata: Metadata = {
   title: 'RC MC: Leaderboard',
@@ -11,13 +12,9 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <PageWithAuth menu={<MinecraftMenu />}>
-      <Sheet
-        variant='solid'
-        sx={{
-          p: 2,
-        }}>
-        <Typography level='h1'>Coming Soon tm</Typography>
-      </Sheet>
+      <Card>
+        <LeaderboardTable />
+      </Card>
     </PageWithAuth>
   )
 }
