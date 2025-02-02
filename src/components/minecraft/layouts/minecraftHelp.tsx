@@ -13,12 +13,20 @@ export const MinecraftHelp = () => {
       description: 'Get list of available commands',
     },
     {
-      name: '/home',
+      name: '/spawn',
       description: 'Teleport to spawn',
+    },
+    {
+      name: '/home',
+      description: 'Teleport to your home point',
     },
     {
       name: '/skills',
       description: 'View status of all your skills',
+    },
+    {
+      name: '/getpos',
+      description: 'Lost? Maybe coordinates will help.',
     },
     {
       name: '/msg [player] [message]',
