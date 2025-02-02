@@ -84,7 +84,7 @@ export const LeaderboardTable = () => {
             </td>
             {MinecraftSkills().map(skillName => {
               const skill = skillName.toLowerCase()
-              // @ts-expect-error
+              // @ts-expect-error This def exists but types are wrong
               const skillLevel = stats?.[`${skill}Level`]
 
               return (
