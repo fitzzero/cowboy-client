@@ -42,7 +42,7 @@ export const LeaderboardTable = () => {
             <th key={skill}>
               <Tooltip title={skill} placement='top-start'>
                 <Image
-                  src={`/minecraft/skills/${skill}.svg`}
+                  src={`/assets/skills/${skill}.svg`}
                   alt={skill}
                   width={16}
                   height={16}
@@ -63,7 +63,7 @@ export const LeaderboardTable = () => {
                     alt={stats.minecraft.name}
                   />
                   <Avatar
-                    src={stats.minecraft.image || '/minecraft/steve.jpg'}
+                    src={stats.minecraft.image || '/assets/steve.jpg'}
                     alt={stats.minecraft.name}
                   />
                 </AvatarGroup>

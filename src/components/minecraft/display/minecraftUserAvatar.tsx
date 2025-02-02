@@ -29,7 +29,7 @@ export const MinecraftUserAvatar = ({
       sx={{ '--Badge-paddingX': '0px', marginBottom: '12px' }}>
       <Avatar
         alt='Travis Howard'
-        src={minecraft?.image || '/minecraft/steve.jpg'}
+        src={minecraft?.image || '/assets/steve.jpg'}
         size='lg'
         sx={{
           ...sx,
