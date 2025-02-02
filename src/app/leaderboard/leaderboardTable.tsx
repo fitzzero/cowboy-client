@@ -14,6 +14,7 @@ import {
   Typography,
 } from '@mui/joy'
 import BarChartIcon from '@mui/icons-material/BarChart'
+import { ReactNode } from 'react'
 
 export const LeaderboardTable = () => {
   const leaderboard = useMinecraftLeaderboard(100)
@@ -45,11 +46,13 @@ export const LeaderboardTable = () => {
             </Tooltip>
           </th>
           {MinecraftSkills.map(skill => {
-            const Icon = MinecraftSkillsWithIcons?.[skill]
+            const icon: ReactNode | null =
+              MinecraftSkillsWithIcons?.[skill] || null
             return (
               <th key={skill}>
                 <Tooltip title={skill} placement='top-start'>
-                  {Icon ? Icon : null}
+                  {/* @ts-expect-error This def exists but types are wrong */}
+                  {icon}
                 </Tooltip>
               </th>
             )
