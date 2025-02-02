@@ -1,4 +1,4 @@
-import { Avatar, AvatarProps, Badge } from '@mui/joy'
+import { Avatar, AvatarProps, Badge, Tooltip } from '@mui/joy'
 import { Minecraft, User } from '@prisma/client'
 
 interface MinecraftUserAvatarProps extends AvatarProps {
@@ -17,11 +17,13 @@ export const MinecraftUserAvatar = ({
       anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
       variant='plain'
       badgeContent={
-        <Avatar
-          alt='Remy Sharp'
-          src={user.image || ''}
-          sx={{ '--Avatar-size': '24px' }}
-        />
+        <Tooltip title={user.name} placement='top-start'>
+          <Avatar
+            alt='Remy Sharp'
+            src={user.image || ''}
+            sx={{ '--Avatar-size': '24px' }}
+          />
+        </Tooltip>
       }
       badgeInset='0%'
       sx={{ '--Badge-paddingX': '0px', marginBottom: '12px' }}>
