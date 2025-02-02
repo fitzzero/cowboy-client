@@ -4,7 +4,7 @@ export const Background = () => {
   return (
     <Sheet
       sx={{
-        backgroundImage: 'url(/minecraft/mc-night.webp)',
+        backgroundImage: 'url(/assets/mc-night.webp)',
         backgroundSize: 'cover',
         position: 'fixed',
         top: 0,
