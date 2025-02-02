@@ -10,7 +10,6 @@ import {
   Tooltip,
   Typography,
 } from '@mui/joy'
-import Image from 'next/image'
 import BarChartIcon from '@mui/icons-material/BarChart'
 
 export const LeaderboardTable = () => {
@@ -18,6 +17,9 @@ export const LeaderboardTable = () => {
   return (
     <Table
       sx={{
+        '& thead th': {
+          backgroundColor: 'background.level1',
+        },
         '& th img': {
           filter: 'invert()',
         },
