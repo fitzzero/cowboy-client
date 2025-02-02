@@ -115,17 +115,19 @@ export const MinecraftMenu = () => {
               </IconButton>
             ) : null}
             {Branding}
-            <Tabs
-              defaultValue={0}
-              onChange={(e, value) => handleChange(value as number)}
-              value={value}
-              sx={{
-                backgroundColor: 'transparent',
-                border: 'none',
-              }}
-              variant='outlined'>
-              {MenuList}
-            </Tabs>
+            {isMobile ? null : (
+              <Tabs
+                defaultValue={0}
+                onChange={(e, value) => handleChange(value as number)}
+                value={value}
+                sx={{
+                  backgroundColor: 'transparent',
+                  border: 'none',
+                }}
+                variant='outlined'>
+                {MenuList}
+              </Tabs>
+            )}
           </>
         }
       />
