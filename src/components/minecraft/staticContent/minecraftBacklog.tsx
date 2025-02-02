@@ -11,11 +11,6 @@ export const MinecraftBacklog = () => {
       description: 'A real spawn area with central services (ie exchange)',
     },
     {
-      name: 'Leaderboard',
-      description:
-        'Live leaderboard to see top players either by total level or by skill/currency.',
-    },
-    {
       name: 'Map',
       description: 'Live map of the world',
     },
@@ -27,6 +22,11 @@ export const MinecraftBacklog = () => {
       name: 'Clans',
       description:
         'Support for clans to display in chat and on leaderboard. Ability to define protected regions that only clan members can edit blocks within.',
+    },
+    {
+      name: 'Discord Integrations',
+      description:
+        'Get server commands and updates within your discord server.',
     },
   ]
   return (

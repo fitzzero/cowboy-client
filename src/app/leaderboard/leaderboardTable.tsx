@@ -84,7 +84,7 @@ export const LeaderboardTable = () => {
             </td>
             {MinecraftSkills().map(skillName => {
               const skill = skillName.toLowerCase()
-              // @ts-ignore
+              // @ts-expect-error
               const skillLevel = stats?.[`${skill}Level`]
 
               return (
