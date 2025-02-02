@@ -16,6 +16,7 @@ import CheckCircleIcon from '@mui/icons-material/CheckCircle'
 import { Prisma } from '@prisma/client'
 import { useMinecraftNameUpdate } from '@/hooks/useMinecraft'
 import { MinecraftUserAvatar } from './minecraftUserAvatar'
+import { MinecraftMyStats } from './minecraftMyStats'
 
 export const MinecraftUserProfile = ({
   user,
@@ -65,6 +66,7 @@ export const MinecraftUserProfile = ({
           {isError ? <FormHelperText>{state?.message}</FormHelperText> : null}
         </FormControl>
       </Stack>
+      <MinecraftMyStats userId={user.id} />
     </Card>
   )
 }
