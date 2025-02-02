@@ -21,6 +21,10 @@ export const MinecraftHelp = () => {
       description: 'Teleport to your home point',
     },
     {
+      name: '/warp [warp]',
+      description: 'Warp to a set location ie <i>/warp northspawn</i>',
+    },
+    {
       name: '/skills',
       description: 'View status of all your skills',
     },
