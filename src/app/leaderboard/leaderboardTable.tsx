@@ -41,7 +41,7 @@ export const LeaderboardTable = () => {
           {MinecraftSkills().map(skill => (
             <th key={skill}>
               <Tooltip title={skill} placement='top-start'>
-                <Image
+                <img
                   src={`/assets/skills/${skill}.svg`}
                   alt={skill}
                   width={16}
