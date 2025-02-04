@@ -1,10 +1,17 @@
+import { useEffect, useState } from 'react'
+
 export const MinecraftLiveMap = () => {
-  const now = new Date()
+  const [src, setSrc] = useState('')
+
+  useEffect(() => {
+    // Generate a unique query parameter to force clear the cache
+    const uniqueParam = new Date().getTime()
+    setSrc(`https://minecraftmap.techtree.gg/?_=${uniqueParam}`)
+  }, [])
+
   return (
     <iframe
-      src={`https://minecraftmap.techtree.gg/?random=${
-        now.getTime() + Math.floor(Math.random() * 1000000)
-      }`}
+      src={src}
       width='100%'
       height='100%'
       frameBorder={0}
