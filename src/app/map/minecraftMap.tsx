@@ -14,12 +14,6 @@ export const MinecraftLiveMap = () => {
   useEffect(() => {
     // Initial load
     updateSrc()
-
-    // Set interval to reload the iframe every 5 minutes (300,000 milliseconds)
-    const intervalId = setInterval(updateSrc, 5 * 60 * 1000)
-
-    // Clear interval on component unmount
-    return () => clearInterval(intervalId)
   }, [])
 
   return (
