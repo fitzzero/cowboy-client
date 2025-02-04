@@ -11,6 +11,7 @@ import {
   Drawer,
   ModalClose,
   Box,
+  Tooltip,
 } from '@mui/joy'
 import FlagIcon from '@mui/icons-material/Flag'
 import { usePathname, useRouter } from 'next/navigation'
@@ -18,6 +19,7 @@ import { findIndex } from 'lodash'
 import { useIsMobile } from '@/hooks/useBreakpoints'
 import MenuIcon from '@mui/icons-material/Menu'
 import { useState } from 'react'
+import { useServerStatus } from '@/hooks/useMinecraftServer'
 
 interface MenuOption {
   action?: () => void
@@ -27,6 +29,7 @@ interface MenuOption {
 }
 
 export const MinecraftMenu = () => {
+  const { status, isLoading } = useServerStatus()
   const [drawer, setDrawer] = useState(false)
   const router = useRouter()
   const route = usePathname().split('/')[1]
@@ -82,13 +85,30 @@ export const MinecraftMenu = () => {
           fontSize: '1.3rem',
         }}
       />
-      <Typography
-        sx={{
-          paddingRight: 4,
-        }}
-        level='title-lg'>
-        RC MC
-      </Typography>
+      <Typography level='title-lg'>RC MC</Typography>
+      <Tooltip title={status?.online ? 'Server Online' : 'Server Offline'}>
+        <Box
+          sx={{
+            cursor: 'pointer',
+            height: 8,
+            width: 8,
+            borderRadius: 4,
+            backgroundColor: status?.color,
+            marginRight: 4,
+            animation: 'ripple 1.2s infinite ease-in-out',
+            '@keyframes ripple': {
+              '0%': {
+                transform: 'scale(1)',
+                opacity: 1,
+              },
+              '100%': {
+                transform: 'scale(1.2)',
+                opacity: 0,
+              },
+            },
+          }}
+        />
+      </Tooltip>
     </Stack>
   )
   const MenuList = (

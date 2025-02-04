@@ -7,12 +7,17 @@ interface Backlog {
 export const MinecraftBacklog = () => {
   const backlog: Backlog[] = [
     {
-      name: 'Map',
-      description: 'Live map of the world',
-    },
-    {
       name: 'Documentation',
       description: 'Better documentation for how to use all the things',
+    },
+    {
+      name: 'Economy',
+      description: 'Earn money, open shops, trade with players.',
+    },
+    {
+      name: 'Monsters & Bosses',
+      description:
+        'Soon the world will expand, and when it does the outer ring will contain more difficult monsters and bosses.',
     },
     {
       name: 'Clans',

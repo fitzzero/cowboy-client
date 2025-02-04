@@ -2,9 +2,9 @@ import { Card, CardContent, Skeleton, Stack, Typography } from '@mui/joy'
 import PlaceIcon from '@mui/icons-material/Place'
 import GroupIcon from '@mui/icons-material/Group'
 import UpgradeIcon from '@mui/icons-material/Upgrade'
-import axios from 'axios'
-import { useEffect, useState } from 'react'
 import { CodeBlock } from '@/components/display/codeBlock'
+import { useServerStatus } from '@/hooks/useMinecraftServer'
+import { useIsMobile } from '@/hooks/useBreakpoints'
 
 interface ServerStatus {
   online: boolean
@@ -19,33 +19,8 @@ interface ServerStatus {
 }
 
 export const MinecraftServerStatus = () => {
-  const [status, setStatus] = useState<ServerStatus | null>(null)
-  const [loading, setLoading] = useState(true)
-  const [error, setError] = useState<string | null>(null)
-  const address = 'mc.rally.gg'
-
-  useEffect(() => {
-    const fetchServerStatus = async () => {
-      try {
-        const response = await axios.get(
-          `https://api.mcsrvstat.us/2/${address}`
-        )
-        setStatus(response.data)
-      } catch (err: any) {
-        setError('Failed to fetch server status')
-      } finally {
-        setLoading(false)
-      }
-    }
-
-    fetchServerStatus()
-
-    // Set interval to fetch server status every 2 minutes
-    const intervalId = setInterval(fetchServerStatus, 2 * 60 * 1000)
-
-    // Clear interval on component unmount
-    return () => clearInterval(intervalId)
-  }, [])
+  const { status, isLoading } = useServerStatus()
+  const isMobile = useIsMobile()
 
   return (
     <Card>
@@ -54,22 +29,31 @@ export const MinecraftServerStatus = () => {
           <Stack direction='row' spacing={1} alignItems='center'>
             <PlaceIcon />
             <Typography>IP:</Typography>
-            <CodeBlock>{address}</CodeBlock>
+            <CodeBlock>mc.rally.gg</CodeBlock>
           </Stack>
           <Stack direction='row' spacing={1} alignItems='center'>
             <UpgradeIcon />
             <Typography>Version:</Typography>
-            <CodeBlock>Java Edition {status?.version}</CodeBlock>
+            <CodeBlock>
+              {isMobile ? 'JE' : 'Java Edition'} {status?.version}
+            </CodeBlock>
           </Stack>
           <Stack direction='row' spacing={1} alignItems='center'>
             <GroupIcon />
             <Typography>Status:</Typography>
+            <Skeleton
+              loading={isLoading}
+              variant='text'
+              level='body-md'
+              width={100}
+            />
             {status?.online ? (
               <CodeBlock>
                 {status?.players?.online}/{status?.players?.max}
               </CodeBlock>
             ) : (
-              <Typography color='danger'>Offline</Typography>
+              !isLoading &&
+              !status?.online(<Typography color='danger'>Offline</Typography>)
             )}
           </Stack>
         </Stack>

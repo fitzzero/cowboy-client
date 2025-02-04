@@ -134,6 +134,18 @@ export const theme = extendTheme({
         }),
       },
     },
+    JoySkeleton: {
+      styleOverrides: {
+        root: () => ({
+          '&.MuiSkeleton-variantText': {
+            '--unstable_pulse-bg': palette.text.secondary,
+            '&:before': {
+              backgroundColor: Color(palette.text.secondary).darken(0.8).hex(),
+            },
+          },
+        }),
+      },
+    },
     JoyTabList: {
       styleOverrides: {
         root: () => ({

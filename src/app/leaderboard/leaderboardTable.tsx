@@ -16,6 +16,7 @@ import {
 import BarChartIcon from '@mui/icons-material/BarChart'
 import { ReactNode } from 'react'
 import { useIsMobile } from '@/hooks/useBreakpoints'
+import { MonetizationOn } from '@mui/icons-material'
 
 export const LeaderboardTable = () => {
   const leaderboard = useMinecraftLeaderboard(100)
@@ -42,6 +43,17 @@ export const LeaderboardTable = () => {
               <th>
                 <Tooltip title={'Total Level'} placement='top-start'>
                   <BarChartIcon
+                    sx={{
+                      color: 'text.primary',
+                      width: '18px',
+                      height: '18px',
+                    }}
+                  />
+                </Tooltip>
+              </th>
+              <th>
+                <Tooltip title={'Total Money'} placement='top-start'>
+                  <MonetizationOn
                     sx={{
                       color: 'text.primary',
                       width: '18px',
@@ -104,6 +116,13 @@ export const LeaderboardTable = () => {
                   <Tooltip title={'Total Level'} placement='top-start'>
                     <Typography level='body-xs' color='primary' fontWeight='lg'>
                       {stats.totalLevel}
+                    </Typography>
+                  </Tooltip>
+                </td>
+                <td>
+                  <Tooltip title={'Total Money'} placement='top-start'>
+                    <Typography level='body-xs' color='primary' fontWeight='lg'>
+                      {stats.money}
                     </Typography>
                   </Tooltip>
                 </td>
