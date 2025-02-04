@@ -47,13 +47,12 @@ export const MinecraftMenu = () => {
       path: '/leaderboard',
     },
     {
-      label: 'Skills',
-      path: '/skills',
-      disabled: true,
-    },
-    {
       label: 'Map',
       path: '/map',
+    },
+    {
+      label: 'Skills',
+      path: '/skills',
       disabled: true,
     },
   ]

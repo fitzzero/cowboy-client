@@ -1,17 +1,17 @@
 import { Metadata } from 'next'
 import { PageWithAuth } from '@/components/layout/pageWithAuth'
 import { MinecraftMenu } from '../minecraftMenu'
-import { MinecraftHelp } from '@/components/minecraft/layouts/minecraftHelp'
+import { MinecraftLiveMap } from './minecraftMap'
 
 export const metadata: Metadata = {
-  title: 'RC MC: Help',
+  title: 'RC MC: Map',
   description: 'An unofficial RC Minecraft server',
 }
 
-export default function Help() {
+export default function Map() {
   return (
-    <PageWithAuth menu={<MinecraftMenu />}>
-      <MinecraftHelp />
+    <PageWithAuth menu={<MinecraftMenu />} maxWidth='xl'>
+      <MinecraftLiveMap />
     </PageWithAuth>
   )
 }
