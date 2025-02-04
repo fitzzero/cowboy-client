@@ -1,7 +1,7 @@
 export const MinecraftLiveMap = () => {
   return (
     <iframe
-      src='https://minecraftmap.techtree.gg/'
+      src={`https://minecraftmap.techtree.gg/?random=${Math.random()}`}
       width='100%'
       height='100%'
       frameBorder={0}
