@@ -61,7 +61,7 @@ export const MinecraftHero = () => {
         }}>
         <Typography level='h2'>Leaderboards</Typography>
         <Typography level='body-lg'>View where you rank</Typography>
-        <Button color='primary' onClick={() => router.push('/leaderboards')}>
+        <Button color='primary' onClick={() => router.push('/leaderboard')}>
           View Leaderboard
         </Button>
       </Stack>,
@@ -76,7 +76,7 @@ export const MinecraftHero = () => {
         <Typography level='body-lg'>
           Live map showing exploration and player location
         </Typography>
-        <Button color='primary' onClick={() => router.push('/leaderboards')}>
+        <Button color='primary' onClick={() => router.push('/map')}>
           View Map
         </Button>
       </Stack>,
