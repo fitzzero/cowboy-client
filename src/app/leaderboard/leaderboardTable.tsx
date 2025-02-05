@@ -35,8 +35,8 @@ export const LeaderboardTable = () => {
       }}>
       <thead>
         <tr>
-          <th />
-          <th style={{ width: '40%' }}>
+          {isMobile ? null : <th />}
+          <th style={{ width: '35%' }}>
             <Typography level='title-md'>Player</Typography>
           </th>
           {isMobile ? null : (
@@ -82,9 +82,11 @@ export const LeaderboardTable = () => {
       <tbody>
         {leaderboard?.map((stats, idx) => (
           <tr key={stats.id}>
-            <td>
-              <Typography level='body-xs'>{idx + 1}</Typography>
-            </td>
+            {isMobile ? null : (
+              <td>
+                <Typography level='body-sm'>{idx + 1}</Typography>
+              </td>
+            )}
             <td>
               <Stack direction='row' alignItems='center' spacing={2}>
                 <AvatarGroup>
@@ -103,6 +105,7 @@ export const LeaderboardTable = () => {
                   </Typography>
                   {isMobile ? (
                     <Stack direction='row' alignItems='center' spacing={1}>
+                      <Typography level='body-sm'>#{idx + 1}</Typography>
                       <BarChartIcon />
                       <Typography level='body-sm'>
                         {stats.totalLevel}
