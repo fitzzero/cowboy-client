@@ -86,7 +86,8 @@ export const MinecraftMenu = () => {
         }}
       />
       <Typography level='title-lg'>RC MC</Typography>
-      <Tooltip title={status?.online ? 'Server Online' : 'Server Offline'}>
+      <Tooltip
+        title={status && status?.online ? 'Server Online' : 'Server Offline'}>
         <Box
           sx={{
             cursor: 'pointer',

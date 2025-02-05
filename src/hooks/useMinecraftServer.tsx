@@ -10,12 +10,13 @@ export const useServerStatus = (address = 'mc.rally.gg') => {
 
   return {
     status: {
-      ...data,
+      online: false,
       color: isLoading
         ? 'text.secondary'
         : data?.online
         ? 'success.500'
         : 'danger.500',
+      ...data,
     },
     isLoading,
     isError: error,

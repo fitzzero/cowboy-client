@@ -51,10 +51,9 @@ export const MinecraftServerStatus = () => {
               <CodeBlock>
                 {status?.players?.online}/{status?.players?.max}
               </CodeBlock>
-            ) : (
-              !isLoading &&
-              !status?.online(<Typography color='danger'>Offline</Typography>)
-            )}
+            ) : !isLoading && !status?.online ? (
+              <Typography color='danger'>Offline</Typography>
+            ) : null}
           </Stack>
         </Stack>
       </CardContent>
