@@ -35,6 +35,7 @@ export const LeaderboardTable = () => {
       }}>
       <thead>
         <tr>
+          <th />
           <th style={{ width: '40%' }}>
             <Typography level='title-md'>Player</Typography>
           </th>
@@ -79,8 +80,11 @@ export const LeaderboardTable = () => {
         </tr>
       </thead>
       <tbody>
-        {leaderboard?.map(stats => (
+        {leaderboard?.map((stats, idx) => (
           <tr key={stats.id}>
+            <td>
+              <Typography level='body-xs'>{idx + 1}</Typography>
+            </td>
             <td>
               <Stack direction='row' alignItems='center' spacing={2}>
                 <AvatarGroup>
