@@ -60,7 +60,11 @@ export const DoubleXpCountdown = () => {
     <Tooltip title='Friday, February 7th @ 12:00pm PTD'>
       <Typography level='body-sm'>
         Double XP Begins In:{' '}
-        {timerComponents.length ? timerComponents : <span>Time's up!</span>}
+        {timerComponents.length ? (
+          timerComponents
+        ) : (
+          <span>Double XP Active!</span>
+        )}
       </Typography>
     </Tooltip>
   )
