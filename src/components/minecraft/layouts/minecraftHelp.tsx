@@ -70,7 +70,7 @@ export const MinecraftHelp = () => {
         }}>
         <Typography level='h3'>Shaders</Typography>
         <Typography>
-          This is Logan's totally optional recommendation for Shaders & Texture
+          This is Logans totally optional recommendation for Shaders & Texture
           Packs
         </Typography>
         <Typography level='h4'>Shaders:</Typography>
