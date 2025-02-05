@@ -3,6 +3,7 @@ import { Sheet } from '@mui/joy'
 
 export const Background = () => {
   const isMobile = useIsMobile()
+
   return (
     <Sheet
       sx={{
