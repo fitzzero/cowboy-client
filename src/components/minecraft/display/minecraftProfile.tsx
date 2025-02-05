@@ -18,12 +18,14 @@ import { Prisma } from '@prisma/client'
 import { useMinecraftNameUpdate } from '@/hooks/useMinecraft'
 import { MinecraftUserAvatar } from './minecraftUserAvatar'
 import { MinecraftMyStats } from './minecraftMyStats'
+import { useIsMobile } from '@/hooks/useBreakpoints'
 
 export const MinecraftUserProfile = ({
   user,
 }: {
   user: Prisma.UserGetPayload<{ include: { minecraft: true } }>
 }) => {
+  const isMobile = useIsMobile()
   const { state, createOrUpdate, isLoading } = useMinecraftNameUpdate(
     user?.minecraft || null
   )
@@ -51,6 +53,9 @@ export const MinecraftUserProfile = ({
           />
           <FormControl error={isError}>
             <Input
+              sx={{
+                width: isMobile ? '70%' : undefined,
+              }}
               size='lg'
               color='primary'
               variant='soft'

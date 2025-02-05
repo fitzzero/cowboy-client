@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react'
 
 export const MinecraftLiveMap = () => {
-  const [src, setSrc] = useState('')
+  const [src, setSrc] = useState('https://minecraftmap.techtree.gg')
 
   const updateSrc = () => {
     // Generate a unique query parameter to force clear the cache

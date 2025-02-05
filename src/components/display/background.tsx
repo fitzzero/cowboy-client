@@ -1,6 +1,8 @@
+import { useIsMobile } from '@/hooks/useBreakpoints'
 import { Sheet } from '@mui/joy'
 
 export const Background = () => {
+  const isMobile = useIsMobile()
   return (
     <Sheet
       sx={{
@@ -12,7 +14,22 @@ export const Background = () => {
         width: '100dvw',
         height: '100dvh',
         zIndex: -1,
-      }}
-    />
+      }}>
+      {isMobile ? null : (
+        <video
+          style={{
+            width: '100dvw',
+            height: '100dvh',
+            objectFit: 'cover',
+          }}
+          autoPlay
+          playsInline
+          loop
+          muted
+          disablePictureInPicture>
+          <source src='/assets/videoloop.mp4' type='video/mp4' />
+        </video>
+      )}
+    </Sheet>
   )
 }

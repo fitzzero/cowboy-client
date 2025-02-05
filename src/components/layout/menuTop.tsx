@@ -27,8 +27,10 @@ export const MenuTop = ({
         color='text.primary'
         sx={{
           backgroundColor:
-            scrollPosition.y > height ? 'background.level1' : undefined,
-          height: 48,
+            scrollPosition.y > height
+              ? 'background.level1'
+              : 'rgb(0, 0, 0, 0.25)',
+          height: 40,
           position: 'fixed',
           width: '100%',
           transition: 'background-color 0.2s',
