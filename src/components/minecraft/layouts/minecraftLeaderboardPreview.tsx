@@ -3,7 +3,6 @@ import { Button, Card, CardContent, Stack, Typography } from '@mui/joy'
 import { MinecraftUserAvatar } from '../display/minecraftUserAvatar'
 import BarChartIcon from '@mui/icons-material/BarChart'
 import { useRouter } from 'next/navigation'
-import { DoubleXpCountdown } from '../display/doubleXp'
 
 export const MinecraftLeaderboardPreview = () => {
   const router = useRouter()
@@ -20,7 +19,6 @@ export const MinecraftLeaderboardPreview = () => {
             View All
           </Button>
         </Stack>
-        <DoubleXpCountdown />
         {leaderboard?.map(stats => (
           <Stack key={stats.id} direction='row' alignItems='center' spacing={2}>
             <MinecraftUserAvatar

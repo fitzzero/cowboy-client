@@ -11,7 +11,7 @@ interface TimeLeft {
 }
 
 const calculateTimeLeft = (): TimeLeft => {
-  const targetDate = new Date('2025-02-07T12:00:00-08:00') // 12:00 PM PDT
+  const targetDate = new Date('2025-02-07T15:00:00-08:00') // 12:00 PM PDT
   const now = new Date()
   const difference = targetDate.getTime() - now.getTime()
 
@@ -50,16 +50,15 @@ export const DoubleXpCountdown = () => {
 
     timerComponents.push(
       <span key={interval}>
-        {timeLeft[key]}
-        {interval === 'seconds' ? null : ':'}
+        {timeLeft[key]} {interval}{' '}
       </span>
     )
   })
 
   return (
-    <Tooltip title='Friday, February 7th @ 12:00pm PTD'>
+    <Tooltip title='Friday, February 7th @ 3:00pm PTD'>
       <Typography level='body-sm'>
-        Double XP Begins In:{' '}
+        World Expansion + Double XP Begins In:{' '}
         {timerComponents.length ? (
           timerComponents
         ) : (
