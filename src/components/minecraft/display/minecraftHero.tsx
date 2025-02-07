@@ -59,11 +59,11 @@ export const MinecraftHero = () => {
         sx={{
           textAlign: 'center',
         }}>
-        <Typography level='h2'>Leaderboards</Typography>
-        <Typography level='body-lg'>View where you rank</Typography>
-        <Button color='primary' onClick={() => router.push('/leaderboard')}>
-          View Leaderboard
-        </Button>
+        <Typography level='h2'>Leveled Mobs</Typography>
+        <Typography level='body-lg'>
+          Mob level and difficulty increases the further out you venture, but
+          with higher danger comes higher rewards
+        </Typography>
       </Stack>,
       <Stack
         key={2}
@@ -80,6 +80,40 @@ export const MinecraftHero = () => {
           View Map
         </Button>
       </Stack>,
+      <Stack
+        key={2}
+        direction='column'
+        spacing={2}
+        sx={{
+          textAlign: 'center',
+        }}>
+        <Typography level='h2'>Leaderboard</Typography>
+        <Typography level='body-lg'>View where you rank</Typography>
+        <Button
+          color='primary'
+          variant='outlined'
+          onClick={() => router.push('/leaderboard')}>
+          View Leaderboard
+        </Button>
+      </Stack>,
+      <Stack
+        key={2}
+        direction='column'
+        spacing={2}
+        sx={{
+          textAlign: 'center',
+        }}>
+        <Typography level='h2'>Map</Typography>
+        <Typography level='body-lg'>
+          Live map showing exploration and player location
+        </Typography>
+        <Button
+          color='primary'
+          variant='outlined'
+          onClick={() => router.push('/map')}>
+          View Map
+        </Button>
+      </Stack>,
     ],
     [isMobile, router]
   )
@@ -92,7 +126,7 @@ export const MinecraftHero = () => {
     const interval = setInterval(() => {
       index = (index + 1) % heroContent.length
       setContent(heroContent[index])
-    }, 5000)
+    }, 8000)
     return () => clearInterval(interval)
   }, [heroContent])
 
