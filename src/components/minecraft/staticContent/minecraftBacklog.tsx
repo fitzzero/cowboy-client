@@ -15,9 +15,9 @@ export const MinecraftBacklog = () => {
       description: 'Earn money, open shops, trade with players.',
     },
     {
-      name: 'Monsters & Bosses',
+      name: 'Bosses',
       description:
-        'Soon the world will expand, and when it does the outer ring will contain more difficult monsters and bosses.',
+        'There are more difficult higher level mobs, but looking to add new custom bosses as well.',
     },
     {
       name: 'Clans',
@@ -33,7 +33,7 @@ export const MinecraftBacklog = () => {
   return (
     <Card>
       <CardContent>
-        <Typography level='h3'>Upcoming Features</Typography>
+        <Typography level='h3'>Upcoming Features (Backlog)</Typography>
         <Stack direction='column' spacing={2}>
           {backlog.map(item => (
             <Stack
