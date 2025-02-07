@@ -13,7 +13,7 @@ export const Page = ({ children, maxWidth = 'md', menu = null }: PageProps) => {
       {menu}
       <Container maxWidth={maxWidth}>
         <Alert
-          color='warning'
+          color='success'
           variant='solid'
           sx={{
             mb: 2,

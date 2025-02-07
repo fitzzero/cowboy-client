@@ -19,7 +19,7 @@ export const DoubleXpCountdown = () => {
   })
 
   const calculateTimeLeft = (): TimeLeft => {
-    const targetDate = new Date('2025-02-07T15:00:00-08:00') // 12:00 PM PDT
+    const targetDate = new Date('2025-02-10T03:00:00-08:00') // 12:00 PM PDT
     const now = new Date()
     const difference = targetDate.getTime() - now.getTime()
 
@@ -56,7 +56,8 @@ export const DoubleXpCountdown = () => {
 
     timerComponents.push(
       <span key={interval}>
-        {timeLeft[key]} {interval}{' '}
+        {timeLeft[key]}
+        {interval?.slice(0, 1) + ' '}
       </span>
     )
   })
@@ -64,12 +65,8 @@ export const DoubleXpCountdown = () => {
   return (
     <Tooltip title='Friday, February 7th @ 3:00pm PTD'>
       <Typography level='body-sm'>
-        World Expansion + Double XP Begins In:{' '}
-        {timerComponents.length ? (
-          timerComponents
-        ) : (
-          <span>Double XP Active!</span>
-        )}
+        World has expanded! Double xp active for:{' '}
+        {timerComponents.length ? timerComponents : null}
       </Typography>
     </Tooltip>
   )
