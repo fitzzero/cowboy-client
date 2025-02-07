@@ -10,29 +10,35 @@ interface TimeLeft {
   seconds?: number
 }
 
-const calculateTimeLeft = (): TimeLeft => {
-  const targetDate = new Date('2025-02-07T15:00:00-08:00') // 12:00 PM PDT
-  const now = new Date()
-  const difference = targetDate.getTime() - now.getTime()
+export const DoubleXpCountdown = () => {
+  const [timeLeft, setTimeLeft] = useState<TimeLeft>({
+    days: 0,
+    hours: 0,
+    minutes: 0,
+    seconds: 0,
+  })
 
-  let timeLeft: TimeLeft = {}
+  const calculateTimeLeft = (): TimeLeft => {
+    const targetDate = new Date('2025-02-07T15:00:00-08:00') // 12:00 PM PDT
+    const now = new Date()
+    const difference = targetDate.getTime() - now.getTime()
 
-  if (difference > 0) {
-    timeLeft = {
-      days: Math.floor(difference / (1000 * 60 * 60 * 24)),
-      hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
-      minutes: Math.floor((difference / 1000 / 60) % 60),
-      seconds: Math.floor((difference / 1000) % 60),
+    let timeLeft: TimeLeft = {}
+
+    if (difference > 0) {
+      timeLeft = {
+        days: Math.floor(difference / (1000 * 60 * 60 * 24)),
+        hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
+        minutes: Math.floor((difference / 1000 / 60) % 60),
+        seconds: Math.floor((difference / 1000) % 60),
+      }
     }
+
+    return timeLeft
   }
 
-  return timeLeft
-}
-
-export const DoubleXpCountdown = () => {
-  const [timeLeft, setTimeLeft] = useState<TimeLeft>(calculateTimeLeft())
-
   useEffect(() => {
+    if (window === undefined) return
     const timer = setInterval(() => {
       setTimeLeft(calculateTimeLeft())
     }, 1000)

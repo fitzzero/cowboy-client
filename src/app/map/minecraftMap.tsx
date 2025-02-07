@@ -1,7 +1,7 @@
 'use client'
 
-import { Fullscreen } from '@mui/icons-material'
-import { Box, IconButton, Tooltip } from '@mui/joy'
+import { Fullscreen, FullscreenExit } from '@mui/icons-material'
+import { IconButton } from '@mui/joy'
 import { useEffect, useState } from 'react'
 
 export const MinecraftLiveMap = () => {
@@ -21,24 +21,22 @@ export const MinecraftLiveMap = () => {
 
   return (
     <>
-      <Tooltip title='Fullscreen'>
-        <IconButton
-          variant='solid'
-          onClick={() => setFullscreen(!fullscreen)}
-          sx={{
-            position: 'absolute',
-            zIndex: 9,
-            marginTop: fullscreen ? 0 : '12px',
-            marginLeft: fullscreen ? 0 : '58px',
-            top: fullscreen ? 52 : undefined,
-            left: fullscreen ? 58 : undefined,
-            backgroundColor: '#fff',
-            color: '#333',
-            boxShadow: '0 0 3px 1px #333',
-          }}>
-          <Fullscreen />
-        </IconButton>
-      </Tooltip>
+      <IconButton
+        variant='solid'
+        onClick={() => setFullscreen(!fullscreen)}
+        sx={{
+          position: 'absolute',
+          zIndex: 9,
+          marginTop: fullscreen ? 0 : '12px',
+          marginLeft: fullscreen ? 0 : '58px',
+          top: fullscreen ? 52 : undefined,
+          left: fullscreen ? 58 : undefined,
+          backgroundColor: '#fff',
+          color: '#333',
+          boxShadow: '0 0 3px 1px #333',
+        }}>
+        {fullscreen ? <FullscreenExit /> : <Fullscreen />}
+      </IconButton>
       <iframe
         src={src}
         width='100%'
