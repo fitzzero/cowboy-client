@@ -11,7 +11,7 @@ export const AccountOrSignin = () => {
 
   if (status == 'unauthenticated')
     return (
-      <Button color='primary' onClick={() => signIn('discord')}>
+      <Button size='sm' color='primary' onClick={() => signIn('discord')}>
         Sign in
       </Button>
     )

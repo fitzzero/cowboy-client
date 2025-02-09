@@ -12,9 +12,7 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <PageWithAuth menu={<MinecraftMenu />}>
-      <Card>
-        <LeaderboardTable />
-      </Card>
+      <LeaderboardTable />
     </PageWithAuth>
   )
 }
