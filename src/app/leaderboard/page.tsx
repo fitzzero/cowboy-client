@@ -2,7 +2,6 @@ import { Metadata } from 'next'
 import { PageWithAuth } from '@/components/layout/pageWithAuth'
 import { MinecraftMenu } from '../minecraftMenu'
 import { LeaderboardTable } from './leaderboardTable'
-import { Card } from '@mui/joy'
 
 export const metadata: Metadata = {
   title: 'RC MC: Leaderboard',

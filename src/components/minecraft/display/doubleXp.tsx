@@ -19,7 +19,7 @@ export const DoubleXpCountdown = () => {
   })
 
   const calculateTimeLeft = (): TimeLeft => {
-    const targetDate = new Date('2025-02-10T03:00:00-08:00') // 12:00 PM PDT
+    const targetDate = new Date('2025-02-14T15:00:00-08:00') // 12:00 PM PDT
     const now = new Date()
     const difference = targetDate.getTime() - now.getTime()
 
@@ -63,9 +63,9 @@ export const DoubleXpCountdown = () => {
   })
 
   return (
-    <Tooltip title='Friday, February 7th @ 3:00pm PTD'>
+    <Tooltip title='Friday, February 14th @ 3:00pm PTD'>
       <Typography level='body-sm'>
-        World has expanded! Double xp active for:{' '}
+        Keeping 2x XP - Double Double 🍔 XP begins in:{' '}
         {timerComponents.length ? timerComponents : null}
       </Typography>
     </Tooltip>

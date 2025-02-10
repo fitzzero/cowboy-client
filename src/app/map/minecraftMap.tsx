@@ -43,16 +43,15 @@ export const MinecraftLiveMap = () => {
         height='100%'
         frameBorder={0}
         style={{
-          minHeight: fullscreen
-            ? 'calc(100dvh - 40px)'
-            : 'calc(100dvh - 150px)',
+          minHeight: fullscreen ? undefined : 'calc(100dvh - 150px)',
           minWidth: fullscreen ? '100dvw' : undefined,
           borderRadius: fullscreen ? 0 : 8,
-          border: '2px solid rgb(0, 0, 0, 0.8)',
+          border: fullscreen ? undefined : '2px solid rgb(0, 0, 0, 0.8)',
           zIndex: fullscreen ? 8 : undefined,
           position: fullscreen ? 'absolute' : undefined,
           top: fullscreen ? 40 : undefined,
           left: fullscreen ? 0 : undefined,
+          height: fullscreen ? 'calc(100dvh - 40px)' : undefined,
         }}
       />
     </>
